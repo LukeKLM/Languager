@@ -172,3 +172,6 @@ cython_debug/
 
 media/
 static-collected/
+node_modules/
+CACHE/
+*.lockd
