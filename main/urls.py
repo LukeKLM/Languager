@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.conf import settings
 from django.contrib import admin
+from django.urls import include
 from django.urls import path
 
 from main.views.dashboard_view import index
@@ -27,6 +28,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", CustomLoginView.as_view(), name="login"),
     path("logout/", CustomLogoutView.as_view(), name="logout"),
+    path("dictionary/", include("main.apps.dictionary.urls")),
     path("", index, name="index"),
 ]
 

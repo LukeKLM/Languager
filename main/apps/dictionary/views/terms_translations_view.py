@@ -1,11 +1,11 @@
 from django.views.generic import CreateView
 
-from main.apps.dictionary.forms.terms_groups_form import TermGroupForm
-from main.apps.dictionary.models import TermGroup
+from main.apps.dictionary.forms.terms_translations_form import TermTranslationForm
+from main.apps.dictionary.models import TermTranslation
 
 
-class TermCreate(CreateView):
-    model = TermGroup
-    form_class = TermGroupForm
-    template_name = "dictionary/terms_groups_create.html"
+class TermTranslationCreate(CreateView):
+    model = TermTranslation
+    form_class = TermTranslationForm
+    template_name = "dictionary/terms_translations_create.html"
     success_url = "/"

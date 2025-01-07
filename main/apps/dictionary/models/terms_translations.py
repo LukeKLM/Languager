@@ -10,6 +10,7 @@ class TermTranslation(SimpleBaseModel):
         "dictionary.Term",
         on_delete=models.CASCADE,
         verbose_name="Termín",
+        related_name="translations",
     )
     text = models.TextField("Text")
     lang = models.TextField("Jazyk", choices=LangChoices)

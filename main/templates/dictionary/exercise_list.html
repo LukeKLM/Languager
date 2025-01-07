@@ -1,0 +1,50 @@
+{% extends '_base.html' %}
+
+{% block title %}Create Exercise result{% endblock %}
+
+{% block content %}
+
+
+<div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+        <h5 data-card-phrase class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
+<button data-card-result type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Result</button>
+<button data-card-next type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Next</button>
+
+
+</div>
+
+
+{% endblock %}
+{% block footer_scripts %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const card = document.querySelector('[data-card-phrase]');
+        const cardResultBtn = document.querySelector('[data-card-result]');
+        const cardNextBtn = document.querySelector('[data-card-next]');
+
+        cardResultBtn.addEventListener('click', function() {
+            card.textContent = cards.length > 0 ? cards[0].translations : "No cards available";
+        });
+
+        cardNextBtn.addEventListener('click', function() {
+            cards.shift();
+            const isMore = cards.length > 0;
+            
+            card.textContent = isMore ? cards[0].term : "No cards available";
+            if (!isMore) {
+                [cardNextBtn, cardResultBtn].forEach(function(element) {
+                    element.disabled = true;
+                    element.classList.remove('bg-blue-700');
+                    element.classList.remove('hover:bg-blue-800');
+                    element.classList.add('bg-gray-300');
+                });
+            }
+        });
+
+        const cards = {{ cards|safe }};
+        console.log(cards)
+        card.textContent = cards.length > 0 ? cards[0].term : "No cards available";
+    });
+</script>
+{% endblock footer_scripts %}
