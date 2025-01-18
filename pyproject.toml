@@ -12,6 +12,7 @@ python-dotenv = "^1.0.1"
 psycopg2-binary = "^2.9.10"
 django-auditlog = "^3.0.0"
 django-compressor = "^4.5.1"
+uvicorn = "^0.34.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.1"
