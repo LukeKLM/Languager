@@ -164,3 +164,7 @@ AUTH_USER_MODEL = "users.User"
 
 LOGIN_URL = "/login"
 ADMIN_URL = "/admin"
+
+DJANGO_SUPERUSER_USERNAME = os.environ.get("DJANGO_SUPERUSER_USERNAME", default="")
+DJANGO_SUPERUSER_EMAIL = os.environ.get("DJANGO_SUPERUSER_EMAIL", default="")
+DJANGO_SUPERUSER_PASSWORD = os.environ.get("DJANGO_SUPERUSER_PASSWORD", default="")
