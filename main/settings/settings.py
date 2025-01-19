@@ -31,7 +31,7 @@ BASE_URL = BASE_PROTOCOL + os.environ.get(
 SECRET_KEY = os.environ.get("PROJECT_SECRET_KEY", default="")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", default="False") == "True"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
 
