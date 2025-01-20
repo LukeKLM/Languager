@@ -7,7 +7,7 @@ class LoginRequiredMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        except_url = (settings.LOGIN_URL, settings.ADMIN_URL)
+        except_url = (settings.LOGIN_URL, settings.ADMIN_URL, "/static", "/media")
         if not request.user.is_authenticated and not any(
             (request.path.startswith(url) for url in except_url),
         ):
